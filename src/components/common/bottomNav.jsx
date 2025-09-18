@@ -6,7 +6,7 @@ export default function TheFooter() {
   const location = useLocation(); // текущий путь
 
   return (
-    <nav className="fixed bottom-0 w-screen h-21 bg-gray-800 pt-2">
+    <nav className="fixed bottom-0 w-screen h-21 bg-gray-800 border-t-1 border-gray-600 pt-2">
       <ul className="flex flex-row justify-around w-full h-full">
         {siteConfig.bottomNavMenu.map((item) => {
           const isActive = location.pathname === item.href;

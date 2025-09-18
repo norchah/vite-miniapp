@@ -25,7 +25,7 @@ export default function App() {
 
   console.log(tg.source)
   return (
-    <div className="p-4 bg-gray-800 text-white h-screen">
+    <div className="bg-gray-800 text-white h-screen">
       <TheHeader/>
       <Routes>
         <Route path="/" element={<Home/>}/>
