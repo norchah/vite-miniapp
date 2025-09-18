@@ -11,17 +11,15 @@ import useMiniAppInit from "./hooks/useMiniAppInit.js";
 
 export default function App() {
   const tg = useTG()
-  const [platform, setPlatform] = useState('')
-  const [source, setSource] = useState('')
 
-  useMiniAppInit(tg)
+  const {viewport} = useMiniAppInit(tg)
 
 useEffect(() => {
     if (!tg) {
-      return
+      // return
     }
-    setPlatform(tg.platform)
-    setSource(tg.source)
+    // setPlatform(tg.platform)
+    // setSource(tg.source)
   }, [tg]);
 
 
@@ -29,8 +27,7 @@ useEffect(() => {
   return (
     <div className="bg-gray-800 text-white h-screen flex flex-col items-center">
       <TheHeader/>
-      <p className='text-2xl pt-5'>{platform}</p>
-      <p className='text-2xl pb-5'>{source}</p>
+      <p>{viewport}</p>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/payments" element={<Payments/>}/>
