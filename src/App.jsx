@@ -6,6 +6,7 @@ import BottomNav from "./components/common/bottomNav.jsx";
 import {useTG} from "./hooks/useTG.js";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
 import {useEffect, useState} from "react";
+import useMiniAppInit from "./hooks/useMiniAppInit.js";
 
 
 export default function App() {
@@ -13,15 +14,11 @@ export default function App() {
   const [platform, setPlatform] = useState('')
   const [source, setSource] = useState('')
 
+  useMiniAppInit(tg)
+
 useEffect(() => {
-    if (tg && typeof tg.disableVerticalSwipes === "function") {
-      tg.disableVerticalSwipes();
-    }
-    if (tg && typeof tg.lockOrientation === "function") {
-      tg.lockOrientation();
-    }
-    if (tg && typeof tg.requestFullscreen === 'function') {
-      tg.requestFullscreen();
+    if (!tg) {
+      return
     }
     setPlatform(tg.platform)
     setSource(tg.source)
