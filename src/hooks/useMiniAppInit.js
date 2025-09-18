@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react';
 import {useTG} from "./useTG.js";
+import {tdData} from "../utils/const.js";
 
 export function useMiniAppInit() {
   const tg = useTG()
@@ -15,11 +16,11 @@ export function useMiniAppInit() {
 }
 
 export function useMiniApp() {
-  const tg = useTG()
-  const [viewport, setViewport] = useState(0);
+  const tgData = useTG()
+  const [tg, setTg] = useState(tdData);
   useEffect(() => {
-    if (!tg) return null;
-    setViewport(tg.viewportHeight);
-  }, [tg]);
-  return {viewport}
+    if (!tgData) return null;
+    setTg({viewport: tgData.viewportHeight,});
+  }, [tgData]);
+  return tg
 }

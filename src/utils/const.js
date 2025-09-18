@@ -1,5 +1,3 @@
-const data = {}
-
 export const mockData = {
   "initData": "query_id=AAFQmfMGAAAAAFCZ8wYNQNEL&user=%7B%22id%22%3A116627792%2C%22first_name%22%3A%22Anton%22%2C%22last_name%22%3A%22%22%2C%22username%22%3A%22AntonKh%22%2C%22language_code%22%3A%22ru%22%2C%22is_premium%22%3Atrue%2C%22allows_write_to_pm%22%3Atrue%2C%22photo_url%22%3A%22https%3A%5C%2F%5C%2Ft.me%5C%2Fi%5C%2Fuserpic%5C%2F320%5C%2FsRiV4yFLnUNqzB01KbHMUiJdBzthJP5tNDvCpZy85QU.svg%22%7D&auth_date=1758134596&signature=cvyT2MhPdgQTNUwElevq5odvB2-P1npalaDXBe448lZwJoGfp5_OKwddAZXw1cYIYFzBHRSOSn0Q8lTMAp5QAA&hash=46d5bd49f72810649b0c01b4df05be13df7dce71a93f17fbd61c90f11cdca737",
   "initDataUnsafe": {
@@ -162,3 +160,38 @@ export const dataItems = [
   {name: 'Gyroscope', href: '031', description: 'Гироскоп.'},
   {name: 'LocationManager', href: '032', description: ''},
 ]
+
+export const tdData = {
+  initData: '',
+  initDataUnsafe: '',
+  version: '',
+  platform: '',
+  colorScheme: '',
+  themeParams: '',
+  isExpanded: '',
+  viewportHeight: '',
+  viewportStableHeight: '',
+  safeAreaInset: '',
+  contentSafeAreaInset: '',
+  isClosingConfirmationEnabled: '',
+  isVerticalSwipesEnabled: '',
+  isFullscreen: '',
+  isOrientationLocked: '',
+  isActive: '',
+  headerColor: '',
+  backgroundColor: '',
+  bottomBarColor: '',
+  BackButton: '',
+  MainButton: '',
+  SecondaryButton: '',
+  SettingsButton: '',
+  HapticFeedback: '',
+  CloudStorage: '',
+  DeviceStorage: '',
+  SecureStorage: '',
+  BiometricManager: '',
+  Accelerometer: '',
+  DeviceOrientation: '',
+  Gyroscope: '',
+  LocationManager: '',
+}

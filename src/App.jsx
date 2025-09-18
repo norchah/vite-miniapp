@@ -8,13 +8,13 @@ import {useMiniAppInit, useMiniApp} from "./hooks/useMiniAppInit.js";
 
 
 export default function App() {
-  const {viewport} = useMiniApp();
+  const tg = useMiniApp();
   useMiniAppInit()
 
   return (
     <div className="bg-gray-800 text-white h-screen flex flex-col items-center">
       <TheHeader/>
-      <p>{viewport}</p>
+      <p>{tg.viewport}</p>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/payments" element={<Payments/>}/>
