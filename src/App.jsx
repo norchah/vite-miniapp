@@ -33,8 +33,8 @@ export default function App() {
       <p>{user && user.username}</p>
       <p>{safe && safe.top}</p>
       <p>{safe && safe.bottom}</p>
-      <p>{safeTg && safe.top}</p>
-      <p>{safeTg && safe.bottom}</p>
+      <p>{safeTg && safeTg.top}</p>
+      <p>{safeTg && safeTg.bottom}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
