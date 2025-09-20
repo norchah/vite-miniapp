@@ -15,14 +15,14 @@ export function useMiniAppInit() {
       tg.lockOrientation();
       tg.requestFullscreen();
       setSafe(tg.safeAreaInset);
-      setSafeTg(tg.contentSafeAreaInset );
+      setSafeTg(tg.contentSafeAreaInset);
 
 
       // test
-      tg.BackButton.isVisible
-      tg.MainButton.isVisible
-      tg.SecondaryButton.isVisible
-      tg.SettingsButton.isVisible
+      tg.BackButton.hide();
+      tg.MainButton.hide();
+      tg.SecondaryButton.hide();
+      tg.SettingsButton.hide();
     }
 
     layoutConfig.safeAreaTop = tg.safeAreaInset.top
