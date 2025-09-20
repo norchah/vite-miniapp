@@ -1,4 +1,4 @@
-import BottomNav from "./components/common/bottomNav.jsx";
+import BottomNav from "./components/ui/layout/bottomNav.jsx";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
 import {useMiniAppInit, useTgUnsafeData} from "./hooks/useMiniAppInit.js";
 import {useEffect, useState} from "react";
@@ -18,7 +18,7 @@ export default function App() {
 
 
 
-  useMiniAppInit()
+  const {safe, safeTg} = useMiniAppInit()
   const tgUnsafe = useTgUnsafeData();
   const initUnsafeData = JSON.stringify(tgUnsafe.initDataUnsafe, null, 2);
 
@@ -39,6 +39,10 @@ export default function App() {
       </button>
       <p>{user && user.username}</p>
 
+      <p>safe device top: {safe && safe.top} пикселей</p>
+      <p>safe device bottom: {safe && safe.bottom} пикселей</p>
+      <p>safe tg top: {safeTg && safeTg.top} px</p>
+      <p>safe tg bottom: {safeTg && safeTg.bottom} px</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
