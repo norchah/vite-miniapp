@@ -1,7 +1,7 @@
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
 import {useMiniAppInit} from "./hooks/useMiniAppInit.js";
 import {useEffect, useState} from "react";
-import {renderPage} from "./utils/renderPage.js";
+import {renderPage} from "./utils/renderPage.jsx";
 import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
 import AdminPage from "./components/common/admin.jsx";
