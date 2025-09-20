@@ -38,9 +38,6 @@ export default function App() {
         смотреь
       </button>
       <p>{user && user.username}</p>
-
-      <p>safe device top: {safe.top} px</p>
-      <p>safe device bottom: {safe.bottom} px</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={bottom}/>
