@@ -12,13 +12,13 @@ import TheFooter from "./components/ui/layout/bottomNav.jsx";
 export default function App() {
   const [page, setPage] = useState('home');
   const [user, setUser] = useState(null);
-  const [stayleMain, setStayleMain] = useState(0);
+  const [styleMain, setStyleMain] = useState(0);
+  const tg = useTG()
 
   useEffect(() => {
-    setStayleMain(layoutConfig.safeAreaTop);
-  }, [layoutConfig.safeAreaTop]);
+    setStyleMain(layoutConfig.safeAreaTop);
+  }, [tg]);
 
-  const tg = useTG()
 
   useMiniAppInit()
   const handleClick = async () => {
@@ -30,7 +30,7 @@ export default function App() {
 
   return (
     <div className={`bg-slate-800 text-white h-screen flex flex-col items-center`}
-         style={{paddingTop: `${stayleMain}px`}}
+         style={{paddingTop: `${styleMain}px`}}
     >
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3 mb-2'>Жать и
@@ -38,7 +38,7 @@ export default function App() {
       </button>
       <p>{user && user.username}</p>
 
-      <p>safe device top: {stayleMain} px</p>
+      <p>safe device top: {styleMain} px</p>
       <p>safe device bottom: {layoutConfig.safeAreaBottom} px</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
