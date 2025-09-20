@@ -18,10 +18,8 @@ export function useMiniAppInit() {
       setSafeTg(tg.contentSafeAreaInset );
     }
 
-    layoutConfig.safeAreaTop = `pt-[${tg.safeAreaInset.top}]`
-    layoutConfig.safeAreaBottom = `pt-[${tg.safeAreaInset.bottom}]`
-    layoutConfig.safeAreaLeft = `pt-[${tg.safeAreaInset.left}]`
-    layoutConfig.safeAreaRight = `pt-[${tg.safeAreaInset.right}]`
+    layoutConfig.safeAreaTop = tg.safeAreaInset.top
+    layoutConfig.safeAreaBottom = tg.safeAreaInset.bottom
 
   }, [tg]);
 
