@@ -1,15 +1,25 @@
 import BottomNav from "./components/common/bottomNav.jsx";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
-import {useMiniAppInit, useMiniApp} from "./hooks/useMiniAppInit.js";
-import {useEffect, useState} from "react";
+import {useMiniAppInit, useTgData} from "./hooks/useMiniAppInit.js";
+import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
+import {useTG} from "./hooks/useTG.js";
 
 
 export default function App() {
   const [user, setUser] = useState(null);
+  const tg = useTG()
+
+  // Загрузка приложения
+  // Берем unsafeData и запол
+  // Берем useTg -> tg.secretStorage - достаем токен, если есть:
+      // Отправляем токен на проверку серверу, если действителен:
+          // useMiniAppInit()
+          // считаем что unsafeData является safeData
+  // Берем unsafeData - initData
   useMiniAppInit()
-  const tg = useMiniApp();
+  // const tg = useTgData();
 
   const [page, setPage] = useState('home');
 
@@ -25,6 +35,10 @@ export default function App() {
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
       <p>{user && user.username}</p>
+      <p>{user && user.id}</p>
+      <p>{user && user.first_name}</p>
+      <p>{user && user.last_name}</p>
+      <p>{user && user.photo_url}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       <BottomNav setPage={setPage} currentPage={page}/>
     </div>
