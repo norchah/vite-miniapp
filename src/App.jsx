@@ -16,7 +16,7 @@ export default function App() {
   const tg = useTG()
 
   useEffect(() => {
-    setStyleMain(layoutConfig.safeAreaTop);
+    console.log('useEffect')
   }, [tg]);
 
 
