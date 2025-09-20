@@ -33,7 +33,7 @@ export default function App() {
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3 mb-2'>Жать и смотреь
       </button>
-      {AddToHomeButton()}
+      {/*{AddToHomeButton()}*/}
       <p>{user && user.username}</p>
 
       <p>safe device top: {safe && safe.top} пикселей</p>
