@@ -19,11 +19,7 @@ export function useMiniAppInit() {
 
 
       // test
-      tg.BackButton.hide();
-      tg.BackButton.onClick(() => {});
-      tg.MainButton.hide();
-      tg.SecondaryButton.hide();
-      tg.SettingsButton.hide();
+      tg.enableClosingConfirmation()
     }
 
     layoutConfig.safeAreaTop = tg.safeAreaInset.top
