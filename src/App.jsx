@@ -1,7 +1,6 @@
-import BottomNav from "./components/ui/layout/bottomNav.jsx";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
 import {useMiniAppInit} from "./hooks/useMiniAppInit.js";
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
@@ -13,12 +12,8 @@ import TheFooter from "./components/ui/layout/bottomNav.jsx";
 export default function App() {
   const [page, setPage] = useState('home');
   const [user, setUser] = useState(null);
-  const [safeTop, setSafeTop] = useState(layoutConfig.safeAreaTop);
-  const [safeBottom, setSafeBottom] = useState(layoutConfig.safeAreaBottom);
-  const {safe, safeTg} = useMiniAppInit()
+  const safe = useMiniAppInit()
   const tg = useTG()
-
-
 
 
   const handleClick = async () => {
@@ -39,10 +34,8 @@ export default function App() {
       {/*{AddToHomeButton()}*/}
       <p>{user && user.username}</p>
 
-      <p>safe device top: {safe && safe.top} пикселей</p>
-      <p>safe device bottom: {safe && safe.bottom} пикселей</p>
-      <p>safe tg top: {safeTg && safeTg.top} px</p>
-      <p>safe tg bottom: {safeTg && safeTg.bottom} px</p>
+      <p>safe device top: {layoutConfig.safeAreaTop} пикселей</p>
+      <p>safe device bottom: {layoutConfig.safeAreaBottom} пикселей</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page}/>
