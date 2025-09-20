@@ -15,7 +15,7 @@ export function useMiniAppInit() {
       tg.lockOrientation();
       tg.requestFullscreen();
       setSafe(tg.safeAreaInset);
-      setSafeTg(tg.ContentSafeAreaInset);
+      setSafeTg(tg.contentSafeAreaInset );
     }
 
     layoutConfig.safeAreaTop = `pt-[${tg.safeAreaInset.top}]`
