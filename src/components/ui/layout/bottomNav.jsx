@@ -1,10 +1,11 @@
 import {siteConfig} from "../../../configs/siteConfig.js";
+import {layoutConfig} from "../../../configs/layoutConfig.js";
 
 
-export default function TheFooter({setPage, currentPage, bottom}) {
+export default function TheFooter({setPage, currentPage}) {
   return (
     <nav className="fixed bottom-0 w-screen h-21 bg-gray-800 border-t-1 border-gray-600 pt-2"
-         style={{paddingBottom: `${bottom}px`}}>
+         style={{paddingBottom: `${layoutConfig.safeAreaBottom}px`}}>
       <ul className="flex flex-row justify-around w-full h-full">
         {siteConfig.bottomNavMenu.map((item) => {
           const isActive = location.pathname === item.href;
