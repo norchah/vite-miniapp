@@ -19,4 +19,9 @@ export class UserApi {
     const res = await this.api.post('/login', {init_data: initData});
     return camelcaseKeys(res.data, {deep: true});
   }
+
+  async checkInitData(initData) {
+    const res = await this.api.post('/check', {init_data: initData});
+    return camelcaseKeys(res.data, {deep: true});
+  }
 }

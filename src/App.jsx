@@ -5,20 +5,15 @@ import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
+import Admin from "./components/common/admin.js";
 
 
 export default function App() {
   const [user, setUser] = useState(null);
   const tg = useTG()
 
-  // Загрузка приложения
-  // Берем unsafeData и запол
-  // Берем useTg -> tg.secretStorage - достаем токен, если есть:
-  // Отправляем токен на проверку серверу, если действителен:
-  // useMiniAppInit()
-  // считаем что unsafeData является safeData
-  // Берем unsafeData - initData
-  useMiniAppInit()
+
+  const safe = useMiniAppInit()
   const tgUnsafe = useTgUnsafeData();
   const initUnsafeData = JSON.stringify(tgUnsafe.initDataUnsafe, null, 2);
 
@@ -37,7 +32,12 @@ export default function App() {
       </button>
       <p className='w-screen'>{initUnsafeData}</p>
       <p>{user && user.username}</p>
+      <p>{safe && safe.top}</p>
+      <p>{safe && safe.bottom}</p>
+      <p>{safe && safe.left}</p>
+
       <div className="flex-1 w-full">{renderPage(page)}</div>
+      {user && user.tg_id === 116627792 ? <Admin/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
     </div>
   );
