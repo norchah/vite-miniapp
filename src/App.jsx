@@ -35,7 +35,7 @@ export default function App() {
       <p>{safe && safe.top}</p>
       <p>{safe && safe.bottom}</p>
       <p>{safe && safe.left}</p>
-
+      <p>{safe && safe.right}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
