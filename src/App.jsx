@@ -5,7 +5,7 @@ import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
-import Admin from "./components/common/admin.js";
+import AdminPage from "./components/common/admin.jsx";
 
 
 export default function App() {
@@ -37,7 +37,7 @@ export default function App() {
       <p>{safe && safe.left}</p>
 
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      {user && user.tg_id === 116627792 ? <Admin/> : null}
+      {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
     </div>
   );
