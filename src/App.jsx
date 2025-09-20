@@ -20,7 +20,7 @@ export default function App() {
   useEffect(() => {
     setTop(safe.top);
     setBottom(safe.bottom);
-  }, [tg, safe]);
+  }, [safe]);
 
   const handleClick = async () => {
     const api = new UserApi();

@@ -12,7 +12,10 @@ export function useMiniAppInit() {
       tg.disableVerticalSwipes();
       tg.lockOrientation();
       tg.requestFullscreen();
-      setSafe(tg.safeAreaInset)
+      setSafe({
+        top: tg.safeAreaInset.top,
+        bottom: tg.safeAreaInset.bottom,
+      })
       // test
 
     }
