@@ -7,6 +7,7 @@ import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
 import AdminPage from "./components/common/admin.jsx";
 import {layoutConfig} from "./configs/layoutConfig.js";
+import TheFooter from "./components/ui/layout/bottomNav.jsx";
 
 
 export default function App() {
@@ -44,7 +45,7 @@ export default function App() {
       <p>safe tg bottom: {safeTg && safeTg.bottom} px</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
-      <BottomNav setPage={setPage} currentPage={page} bottom={safeBottom}/>
+      <TheFooter setPage={setPage} currentPage={page}/>
     </div>
   );
 }
