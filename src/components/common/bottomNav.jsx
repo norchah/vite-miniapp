@@ -1,10 +1,9 @@
-import {Link, useLocation} from 'react-router-dom';
 import {siteConfig} from "../../configs/siteConfig.js";
 
 
 export default function TheFooter({setPage, currentPage}) {
   return (
-    <nav className="fixed bottom-0 w-screen h-21 bg-gray-800 border-t-1 border-gray-600 pt-2">
+    <nav className="fixed bottom-0 w-screen h-21 bg-gray-800 border-t-1 border-gray-600 pt-2 pb-[34px]">
       <ul className="flex flex-row justify-around w-full h-full">
         {siteConfig.bottomNavMenu.map((item) => {
           const isActive = location.pathname === item.href;
@@ -17,7 +16,7 @@ export default function TheFooter({setPage, currentPage}) {
                 onClick={() => setPage(item.href)}
                 className={`
                 ${currentPage === item.href ? 'text-cyan-600' : ''}
-                flex flex-col justify-start items-center w-full h-full
+                flex flex-col items-center w-full h-full
                 `}
               >
                 <Icon className={`size-7 ${color}`}/>
