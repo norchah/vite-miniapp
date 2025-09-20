@@ -19,7 +19,7 @@ export function useMiniAppInit() {
 
 
       // test
-      tg.enableClosingConfirmation()
+
     }
 
     layoutConfig.safeAreaTop = tg.safeAreaInset.top
