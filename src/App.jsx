@@ -31,7 +31,7 @@ export default function App() {
          style={{paddingTop: `${layoutConfig.safeAreaTop}px`}}
     >
       <TheHeader/>
-      <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3'>Жать и смотреь
+      <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3 mb-2'>Жать и смотреь
       </button>
       {AddToHomeButton()}
       <p>{user && user.username}</p>
