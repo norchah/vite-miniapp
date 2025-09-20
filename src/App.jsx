@@ -7,20 +7,15 @@ import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
 import AdminPage from "./components/common/admin.jsx";
 import {layoutConfig} from "./configs/layoutConfig.js";
+import AddToHomeButton from "./components/ui/toHomeButton.jsx";
 
 
 export default function App() {
   const [user, setUser] = useState(null);
-  // const [safeTop, setSafeTop] = useState(layoutConfig.safeAreaTop);
-  // const [safeBottom, setSsafeBottom] = useState(layoutConfig.safeAreaBottom);
   const tg = useTG()
 
 
-
-
   const {safe, safeTg} = useMiniAppInit()
-  const tgUnsafe = useTgUnsafeData();
-  const initUnsafeData = JSON.stringify(tgUnsafe.initDataUnsafe, null, 2);
 
   const [page, setPage] = useState('home');
 
@@ -30,14 +25,15 @@ export default function App() {
     setUser(res);
   }
 
+
   return (
     <div className={`bg-slate-800 text-white h-screen flex flex-col items-center`}
-    style = {{paddingTop: `${layoutConfig.safeAreaTop}px`}}
+         style={{paddingTop: `${layoutConfig.safeAreaTop}px`}}
     >
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3'>Жать и смотреь
       </button>
-      <button onClick={() => {tg.addToHomeScreen()}} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3'>Добавить на главный экран</button>
+      {AddToHomeButton()}
       <p>{user && user.username}</p>
 
       <p>safe device top: {safe && safe.top} пикселей</p>
