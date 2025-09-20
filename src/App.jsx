@@ -14,9 +14,9 @@ export default function App() {
   // Загрузка приложения
   // Берем unsafeData и запол
   // Берем useTg -> tg.secretStorage - достаем токен, если есть:
-      // Отправляем токен на проверку серверу, если действителен:
-          // useMiniAppInit()
-          // считаем что unsafeData является safeData
+  // Отправляем токен на проверку серверу, если действителен:
+  // useMiniAppInit()
+  // считаем что unsafeData является safeData
   // Берем unsafeData - initData
   useMiniAppInit()
   const tgUnsafe = useTgUnsafeData();
@@ -35,8 +35,8 @@ export default function App() {
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
-      <p>{user && user.username}</p>
       <p>{initUnsafeData}</p>
+      <p>{user && user.username}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       <BottomNav setPage={setPage} currentPage={page}/>
     </div>
