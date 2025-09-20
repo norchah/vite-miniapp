@@ -35,8 +35,9 @@ export default function App() {
     style = {{paddingTop: `${layoutConfig.safeAreaTop}px`}}
     >
       <TheHeader/>
-      <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
+      <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3'>Жать и смотреь
       </button>
+      <button onClick={() => {tg.addToHomeScreen()}} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3'>Добавить на главный экран</button>
       <p>{user && user.username}</p>
 
       <p>safe device top: {safe && safe.top} пикселей</p>
