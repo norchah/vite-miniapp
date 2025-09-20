@@ -35,8 +35,10 @@ export default function App() {
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
       <p>{user && user.username}</p>
+      <p>InitDataUnsafe id: {tg.initDataUnsafe.id}</p>
+      <p>InitDataUnsafe username: {tg.initDataUnsafe.username}</p>
       <p>{user && user.id}</p>
-      <p>{user && user.first_name}</p>
+      <p>{user && user.firstname}</p>
       <p>{user && user.last_name}</p>
       <p>{user && user.photo_url}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
