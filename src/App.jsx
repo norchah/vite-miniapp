@@ -27,7 +27,9 @@ export default function App() {
   }
 
   return (
-    <div className={`bg-slate-800 text-white h-screen flex flex-col items-center pt-[${layoutConfig.safeAreaTop}px]`}>
+    <div className={`bg-slate-800 text-white h-screen flex flex-col items-center`}
+    style = {{paddingTop: `${layoutConfig.safeAreaTop}px`}}
+    >
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
