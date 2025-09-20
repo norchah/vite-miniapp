@@ -1,7 +1,7 @@
 import BottomNav from "./components/ui/layout/bottomNav.jsx";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
-import {useMiniAppInit, useTgUnsafeData} from "./hooks/useMiniAppInit.js";
-import {useEffect, useState} from "react";
+import {useMiniAppInit} from "./hooks/useMiniAppInit.js";
+import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
 import {useTG} from "./hooks/useTG.js";
