@@ -1,6 +1,6 @@
 import BottomNav from "./components/common/bottomNav.jsx";
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
-import {useMiniAppInit, useTgData} from "./hooks/useMiniAppInit.js";
+import {useMiniAppInit, useTgUnsafeData} from "./hooks/useMiniAppInit.js";
 import {useState} from "react";
 import {renderPage} from "./utils/renderPage.js";
 import {UserApi} from "./api/userApi.js";
@@ -19,7 +19,8 @@ export default function App() {
           // считаем что unsafeData является safeData
   // Берем unsafeData - initData
   useMiniAppInit()
-  // const tg = useTgData();
+  const tgUnsafe = useTgUnsafeData();
+  const initUnsafeData = JSON.stringify(tgUnsafe.initDataUnsafe, null, 2);
 
   const [page, setPage] = useState('home');
 
@@ -35,12 +36,7 @@ export default function App() {
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
       <p>{user && user.username}</p>
-      <p>InitDataUnsafe id: {tg.initDataUnsafe.id}</p>
-      <p>InitDataUnsafe username: {tg.initDataUnsafe.username}</p>
-      <p>{user && user.id}</p>
-      <p>{user && user.firstname}</p>
-      <p>{user && user.last_name}</p>
-      <p>{user && user.photo_url}</p>
+      <p>{initUnsafeData}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       <BottomNav setPage={setPage} currentPage={page}/>
     </div>

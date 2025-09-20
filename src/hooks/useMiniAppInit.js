@@ -14,7 +14,7 @@ export function useMiniAppInit() {
   }, [tg]);
 }
 
-export function useTgData() {
+export function useTgUnsafeData() {
   const tgData = useTG()
   const [tg, setTg] = useState(tdData);
   useEffect(() => {
