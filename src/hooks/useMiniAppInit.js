@@ -5,6 +5,7 @@ import {layoutConfig} from "../configs/layoutConfig.js";
 
 export function useMiniAppInit() {
   const [safe, setSafe] = useState(null);
+  const [safeTg, setSafeTg] = useState(null);
   const tg = useTG()
 
   useEffect(() => {
@@ -14,6 +15,7 @@ export function useMiniAppInit() {
       tg.lockOrientation();
       tg.requestFullscreen();
       setSafe(tg.safeAreaInset);
+      setSafeTg(tg.ContentSafeAreaInset);
     }
 
     layoutConfig.safeAreaTop = `pt-[${tg.safeAreaInset.top}]`
@@ -23,7 +25,7 @@ export function useMiniAppInit() {
 
   }, [tg]);
 
-  return safe
+  return {safe, safeTg}
 }
 
 

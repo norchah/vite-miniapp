@@ -13,7 +13,7 @@ export default function App() {
   const tg = useTG()
 
 
-  const safe = useMiniAppInit()
+  const {safe, safeTg} = useMiniAppInit()
   const tgUnsafe = useTgUnsafeData();
   const initUnsafeData = JSON.stringify(tgUnsafe.initDataUnsafe, null, 2);
 
@@ -30,12 +30,11 @@ export default function App() {
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
-      <p className='w-screen'>{initUnsafeData}</p>
       <p>{user && user.username}</p>
       <p>{safe && safe.top}</p>
       <p>{safe && safe.bottom}</p>
-      <p>{safe && safe.left}</p>
-      <p>{safe && safe.right}</p>
+      <p>{safeTg && safe.top}</p>
+      <p>{safeTg && safe.bottom}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <BottomNav setPage={setPage} currentPage={page}/>
