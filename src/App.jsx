@@ -38,7 +38,7 @@ export default function App() {
       </button>
       <p>{user && user.username}</p>
 
-      <p>safe device top: {layoutConfig.safeAreaTop} px</p>
+      <p>safe device top: {stayleMain} px</p>
       <p>safe device bottom: {layoutConfig.safeAreaBottom} px</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
