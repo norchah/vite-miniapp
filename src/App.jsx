@@ -35,7 +35,7 @@ export default function App() {
       <TheHeader/>
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800'>Жать и смотреь
       </button>
-      <p>{initUnsafeData}</p>
+      <p className='w-screen'>{initUnsafeData}</p>
       <p>{user && user.username}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       <BottomNav setPage={setPage} currentPage={page}/>
