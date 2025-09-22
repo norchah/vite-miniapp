@@ -14,8 +14,21 @@ export default function App() {
   const [top, setTop] = useState(0);
   const [bottom, setBottom] = useState(0);
   const tg = useTG()
-
+  const [errorMessage, setErrorMessage] = useState(null)
   const safe = useMiniAppInit()
+
+  useEffect(() => {
+    async function login() {
+      try {
+        const api = new UserApi()
+        setUser(await api.login(tg.initData))
+        setErrorMessage(null)
+      } catch (e) {
+        setErrorMessage(e.message)
+      }
+    }
+    login()
+  }, []);
 
   useEffect(() => {
     setTop(safe.top);
@@ -37,6 +50,7 @@ export default function App() {
       <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3 mb-2'>Жать и
         смотреь
       </button>
+      {errorMessage && <p>{errorMessage}</p>}
       <p>{user && user.username}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}

@@ -2,7 +2,7 @@ import {useEffect, useState} from 'react';
 import {useTG} from "./useTG.js";
 import {tdData} from "../utils/const.js";
 
-export function useMiniAppInit() {
+export async function useMiniAppInit() {
   const [safe, setSafe] = useState(0);
   const tg = useTG()
 
@@ -25,7 +25,7 @@ export function useMiniAppInit() {
 }
 
 
-export function useTgUnsafeData() {
+export function useTgData() {
   const tgData = useTG()
   const [tg, setTg] = useState(tdData);
 
@@ -34,6 +34,7 @@ export function useTgUnsafeData() {
     setTg({
       tg: JSON.stringify(tgData, null, 2),
       initDataUnsafe: tgData.initDataUnsafe,
+      initData: tgData.initData,
     });
   }, [tgData]);
   return tg
