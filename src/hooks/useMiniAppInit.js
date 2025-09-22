@@ -17,7 +17,7 @@ export function useMiniAppInit() {
         bottom: tg.safeAreaInset.bottom,
       })
       // test
-
+    tg.ready()
     }
 
   }, [tg]);
