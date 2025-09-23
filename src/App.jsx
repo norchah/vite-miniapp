@@ -15,7 +15,7 @@ export default function App() {
   const [bottom, setBottom] = useState(0);
   const tg = useTG()
   const [errorMessage, setErrorMessage] = useState(null)
-  const safe = useMiniAppInit()
+  const safeZone = useMiniAppInit()
 
   useEffect(() => {
     async function login() {
@@ -31,9 +31,10 @@ export default function App() {
   }, [tg]);
 
   useEffect(() => {
-    setTop(safe.top);
-    setBottom(safe.bottom);
-  }, [safe]);
+    if (!safeZone) return;
+    setTop(safeZone.top);
+    setBottom(safeZone.bottom);
+  }, [safeZone]);
 
 
 
