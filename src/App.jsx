@@ -27,7 +27,6 @@ export default function App() {
         setErrorMessage(e.message)
       }
     }
-
     login()
   }, [tg]);
 
@@ -45,7 +44,7 @@ export default function App() {
       <TheHeader/>
 
       {errorMessage && <p>{errorMessage}</p>}
-      <p>{user && user.username}</p>
+      <p>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.tg_id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={bottom}/>
