@@ -28,18 +28,13 @@ export default function App() {
       }
     }
     login()
-  }, []);
+  }, [tg]);
 
   useEffect(() => {
     setTop(safe.top);
     setBottom(safe.bottom);
   }, [safe]);
 
-  const handleClick = async () => {
-    const api = new UserApi();
-    const res = await api.login(tg.initData)
-    setUser(res);
-  }
 
 
   return (
@@ -47,9 +42,7 @@ export default function App() {
          style={{paddingTop: `${top}px`}}
     >
       <TheHeader/>
-      <button onClick={handleClick} className='bg-sky-600 hover:cursor-pointer active:bg-sky-800 p-3 mb-2'>Жать и
-        смотреь
-      </button>
+
       {errorMessage && <p>{errorMessage}</p>}
       <p>{user && user.username}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>

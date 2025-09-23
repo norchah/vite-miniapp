@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init-db.sh:/docker-entrypoint-initdb.d/init-db.sh:ro
+    env_file:
+      - .env
+    networks:
+      - kc-bot
+
+  users:
+    image: norchah/users-kc-dev:latest
+    container_name: users
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    networks:
+      - kc-bot
+
+
+  nginx:
+    image: norchah/nginx_keycraft-dev:latest
+    container_name: nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - users
+    networks:
+      - kc-bot
+
+volumes:
+  postgres_data:
+
+networks:
+  kc-bot:
+    driver: bridge
