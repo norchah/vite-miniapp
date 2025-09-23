@@ -27,6 +27,7 @@ export default function App() {
         setErrorMessage(e.message)
       }
     }
+
     login()
   }, [tg]);
 
@@ -35,7 +36,6 @@ export default function App() {
     setTop(safeZone.top);
     setBottom(safeZone.bottom);
   }, [safeZone]);
-
 
 
   return (

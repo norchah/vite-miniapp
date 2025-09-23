@@ -2,8 +2,8 @@ import {useEffect, useState} from 'react';
 import {useTG} from "./useTG.js";
 import {tdData} from "../utils/const.js";
 
-export async function useMiniAppInit() {
-  const [safe, setSafe] = useState(0);
+export function useMiniAppInit() {
+  const [safeZone, setSafeZone] = useState(0);
   const tg = useTG()
 
   useEffect(() => {
@@ -12,16 +12,16 @@ export async function useMiniAppInit() {
       tg.disableVerticalSwipes();
       tg.lockOrientation();
       tg.requestFullscreen();
-      setSafe({
+      setSafeZone({
         top: tg.safeAreaInset.top,
         bottom: tg.safeAreaInset.bottom,
       })
       // test
-    tg.ready()
+      tg.ready()
     }
 
   }, [tg]);
-  return safe
+  return safeZone
 }
 
 
