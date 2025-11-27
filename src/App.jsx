@@ -38,7 +38,7 @@ export default function App() {
 
 
   return (
-    <div className={`bg-slate-800 text-white h-screen flex flex-col items-center`}
+    <div className={`bg-slate-800 text-white h-screen flex flex-col items-center m-auto`}
          style={{paddingTop: `${top}px`}}
     >
       <TheHeader/>
