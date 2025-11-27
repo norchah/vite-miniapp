@@ -28,7 +28,7 @@ export default function App() {
       }
     }
     login()
-  }, [tg]);
+  }, [tg.initData]);
 
   useEffect(() => {
     if (!safeZone) return;
