@@ -16,7 +16,7 @@ export class UserApi {
 
   async login(initData) {
     console.log(initData);
-    const res = await this.api.post('/login_miniapp/', {init_data: initData});
+    const res = await this.api.post('/auth/login_miniapp/', {init_data: initData});
     return camelcaseKeys(res.data, {deep: true});
   }
 
