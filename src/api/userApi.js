@@ -5,7 +5,7 @@ import camelcaseKeys from "camelcase-keys";
 export class UserApi {
   constructor() {
     this.api = axios.create({
-      baseURL: 'https://test.norchah.ru/test/users/',
+      baseURL: 'https://norchah.ru/test/users/',
       withCredentials: true,
       headers: {
         'Content-Type': 'application/json',
