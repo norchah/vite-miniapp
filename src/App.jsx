@@ -8,12 +8,12 @@ import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 
 
 export default function App() {
-  console.log(`TELEGRAM WEB APP:::::::::::::::::::::::::::::::::::::::::: ${window.Telegram.WebApp}`)
+  console.log(`TELEGRAM WEB APP:::::::::::::::::::::::::::::::::::::::::: `, window.Telegram.WebApp)
   const [page, setPage] = useState('home');
   const [top, setTop] = useState(0);
   const [bottom, setBottom] = useState(0);
   const safeZone = useMiniAppInit()
-  const { user, error, loading} = useMiniAppAuth();
+  const {user, error, loading} = useMiniAppAuth();
 
 
   useEffect(() => {
