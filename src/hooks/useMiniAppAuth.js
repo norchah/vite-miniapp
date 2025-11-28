@@ -10,7 +10,7 @@ export function useMiniAppAuth() {
   useEffect(() => {
     async function login() {
       try {
-        const tg = window.Telegram?.WabApp;
+        const tg = window.Telegram?.WebApp;
         if (tg?.initData || tg.initData.length === 0) {
           setError('No Telegram initData');
           setLoading(false);

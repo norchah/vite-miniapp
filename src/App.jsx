@@ -8,7 +8,7 @@ import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 
 
 export default function App() {
-  console.log(window.Telegram.WebApp)
+  console.log(`TELEGRAM WEB APP:::::::::::::::::::::::::::::::::::::::::: ${window.Telegram.WebApp}`)
   const [page, setPage] = useState('home');
   const [top, setTop] = useState(0);
   const [bottom, setBottom] = useState(0);
