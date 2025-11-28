@@ -2,33 +2,19 @@ import TheHeader from "./components/ui/layout/TheHeader.jsx";
 import {useMiniAppInit} from "./hooks/useMiniAppInit.js";
 import {useEffect, useState} from "react";
 import {renderPage} from "./utils/renderPage.jsx";
-import {UserApi} from "./api/userApi.js";
-import {useTG} from "./hooks/useTG.js";
 import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
+import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 
 
 export default function App() {
+  console.log(window.Telegram.WebApp)
   const [page, setPage] = useState('home');
-  const [user, setUser] = useState(null);
   const [top, setTop] = useState(0);
   const [bottom, setBottom] = useState(0);
-  const tg = useTG()
-  const [errorMessage, setErrorMessage] = useState(null)
   const safeZone = useMiniAppInit()
+  const { user, error, loading} = useMiniAppAuth();
 
-  useEffect(() => {
-    async function login() {
-      try {
-        const api = new UserApi()
-        setUser(await api.login(tg.initData))
-        setErrorMessage(null)
-      } catch (e) {
-        setErrorMessage(e.message)
-      }
-    }
-    login()
-  }, [tg.initData]);
 
   useEffect(() => {
     if (!safeZone) return;
@@ -43,10 +29,10 @@ export default function App() {
     >
       <TheHeader/>
 
-      {errorMessage && <p>{errorMessage}</p>}
+      {error && <p>{error}</p>}
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      {user && user.tg_id === 116627792 ? <AdminPage/> : null}
+      {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={bottom}/>
     </div>
   );
