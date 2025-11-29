@@ -6,12 +6,16 @@ import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 import AddToHomeButton from "./components/ui/toHomeButton.jsx";
+import useTgData from "./hooks/useTgData.js";
 
 
 export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
+  const {tgData} = useTgData()
+  console.log(`USER::::::::   ${user}`)
+  console.log(`TG DATA::::::::   ${tgData}`)
 
 
   return (
@@ -21,10 +25,10 @@ export default function App() {
       <TheHeader/>
 
       {error && <p>{error}</p>}
-      <AddToHomeButton/>
+
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      <img src={user.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>
+      <img src={tgData.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>
