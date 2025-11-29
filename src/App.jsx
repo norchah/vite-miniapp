@@ -33,7 +33,7 @@ export default function App() {
 
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      <img src={tgData.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>
+      {/*<img src={tgData.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>*/}
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>
