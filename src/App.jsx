@@ -17,8 +17,8 @@ export default function App() {
 
   useEffect(() => {
     setTimeout(function () {
-      console.log(`USER::::::::   ${user}`);
-      console.log(`TG DATA::::::::   ${tgData}`)
+      console.log("USER:::::::: ", user);
+      console.log("TG DATA:::::::: ", tgData)
     }, 2000);
   }, [user, tgData])
 
