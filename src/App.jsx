@@ -10,17 +10,8 @@ import AddToHomeButton from "./components/ui/toHomeButton.jsx";
 
 export default function App() {
   const [page, setPage] = useState('home');
-  const [top, setTop] = useState(0);
-  const [bottom, setBottom] = useState(0);
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
-
-
-  // useEffect(() => {
-  //   if (!safeZone) return;
-  //   setTop(safeZone.top);
-  //   setBottom(safeZone.bottom);
-  // }, [safeZone]);
 
 
   return (
@@ -33,6 +24,7 @@ export default function App() {
       <AddToHomeButton/>
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
+      <img src={user.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>
