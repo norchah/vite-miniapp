@@ -5,8 +5,7 @@ import {renderPage} from "./utils/renderPage.jsx";
 import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
-import AddToHomeButton from "./components/ui/toHomeButton.jsx";
-import useTgData from "./hooks/useTgData.js";
+import { useTgData } from "./hooks/useTgData.js";
 
 
 export default function App() {
