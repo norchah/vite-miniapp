@@ -1,41 +1,27 @@
 import {useEffect, useState} from 'react';
-import {useTG} from "./useTG.js";
-import {tdData} from "../utils/const.js";
+import {useTgData} from "./useTgData.js";
+
 
 export function useMiniAppInit() {
-  const [safeZone, setSafeZone] = useState(0);
-  const tg = useTG()
+  const [safeZoneTop, setSafeZoneTop] = useState(0);
+  const [safeZoneBottom, setSafeZoneBottom] = useState(0);
+  const {tgData} = useTgData()
 
   useEffect(() => {
-    if (!tg) return null;
-    if (tg.platform !== 'tdesktop') {
-      tg.disableVerticalSwipes();
-      tg.lockOrientation();
-      tg.requestFullscreen();
-      setSafeZone({
-        top: tg.safeAreaInset.top,
-        bottom: tg.safeAreaInset.bottom,
-      })
-      // test
-      tg.ready()
-    }
+      if (!tgData) return;
+      if (tgData.platform !== 'tdesktop') {
+        tgData.disableVerticalSwipes();
+        tgData.lockOrientation();
+        tgData.requestFullscreen();
+        setSafeZoneTop(tgData.safeAreaInset.top)
+        setSafeZoneBottom(tgData.safeAreaInset.bottom)
 
-  }, [tg]);
-  return safeZone
-}
+        // test
+        tgData.ready()
+      }
 
+    }, [tgData]
+  );
 
-export function useTgData() {
-  const tgData = useTG()
-  const [tg, setTg] = useState(tdData);
-
-  useEffect(() => {
-    if (!tgData) return null;
-    setTg({
-      tg: JSON.stringify(tgData, null, 2),
-      initDataUnsafe: tgData.initDataUnsafe,
-      initData: tgData.initData,
-    });
-  }, [tgData]);
-  return tg
+  return {safeZoneTop, safeZoneBottom}
 }

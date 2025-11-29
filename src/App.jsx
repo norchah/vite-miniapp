@@ -5,14 +5,14 @@ import {renderPage} from "./utils/renderPage.jsx";
 import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
+import AddToHomeButton from "./components/ui/toHomeButton.jsx";
 
 
 export default function App() {
-  console.log(`TELEGRAM WEB APP:::::::::::::::::::::::::::::::::::::::::: `, window.Telegram.WebApp)
   const [page, setPage] = useState('home');
   const [top, setTop] = useState(0);
   const [bottom, setBottom] = useState(0);
-  const safeZone = useMiniAppInit()
+  const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
 
 
@@ -25,15 +25,16 @@ export default function App() {
 
   return (
     <div className={`bg-slate-800 text-white h-screen flex flex-col items-center m-auto`}
-         style={{paddingTop: `${top}px`}}
+         style={{paddingTop: `${safeZoneTop}px`}}
     >
       <TheHeader/>
 
       {error && <p>{error}</p>}
+      <AddToHomeButton/>
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.id === 116627792 ? <AdminPage/> : null}
-      <TheFooter setPage={setPage} currentPage={page} safeBottom={bottom}/>
+      <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>
   );
 }
