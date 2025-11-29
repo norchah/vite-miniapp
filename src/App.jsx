@@ -16,11 +16,11 @@ export default function App() {
   const {user, error, loading} = useMiniAppAuth();
 
 
-  useEffect(() => {
-    if (!safeZone) return;
-    setTop(safeZone.top);
-    setBottom(safeZone.bottom);
-  }, [safeZone]);
+  // useEffect(() => {
+  //   if (!safeZone) return;
+  //   setTop(safeZone.top);
+  //   setBottom(safeZone.bottom);
+  // }, [safeZone]);
 
 
   return (
