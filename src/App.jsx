@@ -20,7 +20,7 @@ export default function App() {
       console.log(`USER::::::::   ${user}`);
       console.log(`TG DATA::::::::   ${tgData}`)
     }, 2000);
-  })
+  }, [user, tgData])
 
 
   return (
