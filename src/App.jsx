@@ -5,7 +5,7 @@ import {renderPage} from "./utils/renderPage.jsx";
 import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
-import { useTgData } from "./hooks/useTgData.js";
+import {useTgData} from "./hooks/useTgData.js";
 
 
 export default function App() {
@@ -13,8 +13,14 @@ export default function App() {
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
   const {tgData} = useTgData()
-  console.log(`USER::::::::   ${user}`)
-  console.log(`TG DATA::::::::   ${tgData}`)
+
+
+  useEffect(() => {
+    setTimeout(function () {
+      console.log(`USER::::::::   ${user}`);
+      console.log(`TG DATA::::::::   ${tgData}`)
+    }, 2000);
+  })
 
 
   return (
