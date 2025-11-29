@@ -1,9 +1,9 @@
 import {useState, useEffect} from "react";
-import {useTG} from "../../hooks/useTG.js";
+import {useTgData} from "../../hooks/useTgData.js";
 
 
 export default function AddToHomeButton() {
-  const tg = useTG();
+  const tg = useTgData();
   const [status, setStatus] = useState(null);
 
   useEffect(() => {
