@@ -29,7 +29,7 @@ export default function TheFooter({setPage, currentPage, safeBottom}) {
                   className={`
                     flex flex-col items-center justify-center w-full py-1
                     transition-all duration-300
-                    ${isActive ? "text-cyan-400 scale-105" : "text-white/70"}
+                    ${isActive ? "text-cyan-400 scale-105" : "text-white"}
                   `}
                 >
                   <div
@@ -45,15 +45,14 @@ export default function TheFooter({setPage, currentPage, safeBottom}) {
                     <Icon
                       className={`
                         size-7 transition-colors duration-300
-                        ${isActive ? "text-cyan-400" : "text-white/70"}
+                        ${isActive ? "text-cyan-400" : "text-white"}
                       `}
                     />
                   </div>
-
                   <p
                     className={`
-                      text-xs mt-1 transition-all duration-300
-                      ${isActive ? "text-cyan-400" : "text-white/60"}
+                      text-xs transition-all duration-300
+                      ${isActive ? "text-cyan-400" : "text-white"}
                     `}
                   >
                     {item.name}
