@@ -29,7 +29,7 @@ export default function App() {
       <TheHeader/>
 
       {error && <p>{error}</p>}
-      {avatar && <img src={avatar} alt="avatar" className="w-[50px] h-[50px] rounded-full"/>}
+      {avatar && <img src={avatar} alt="avatar" className="w-[100px] h-[100px] rounded-full"/>}
 
       <div className="flex-1 w-full">{renderPage(page)}</div>
       {user && user.id === 116627792 ? <AdminPage/> : null}
