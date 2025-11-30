@@ -71,11 +71,11 @@ export default function App() {
 
       {user?.id === 116627792 && <AdminPage/>}
 
-      <TheFooter
-        setPage={setPage}
-        currentPage={page}
-        safeBottom={safeZoneBottom}
-      />
+      {/*<TheFooter*/}
+      {/*  setPage={setPage}*/}
+      {/*  currentPage={page}*/}
+      {/*  safeBottom={safeZoneBottom}*/}
+      {/*/>*/}
     </div>
   );
 }
