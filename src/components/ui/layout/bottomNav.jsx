@@ -1,67 +1,68 @@
 import { siteConfig } from "../../../configs/siteConfig.js";
 
-export default function TheFooter({ setPage, currentPage, safeBottom }) {
+export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
   return (
-    <nav
-      className="
-        fixed bottom-0 left-0 right-0
-        mx-auto w-full max-w-md
-        h-20
-        rounded-2xl
-        bg-white/10 dark:bg-black/20
-        backdrop-blur-xl
-        border border-white/20 dark:border-white/10
-        shadow-lg shadow-black/20
-        flex items-center justify-center
-      "
-      style={{ marginBottom: `${safeBottom}px` }}
-    >
-      <ul className="flex flex-row justify-around w-full px-4">
-        {siteConfig.bottomNavMenu.map((item) => {
-          const Icon = item.icon;
-          const isActive = currentPage === item.href;
+    <div className="fixed bottom-0 left-0 right-0 px-2 pb-2"
+         style={{ marginBottom: `${safeZoneBottom}px` }}>
+      <nav
+        className="
+          mx-auto w-full max-w-md
+          h-20
+          rounded-2xl
+          bg-white/10 dark:bg-black/20
+          backdrop-blur-xl
+          border border-white/20 dark:border-white/10
+          shadow-lg shadow-black/20
+          flex items-center justify-center
+        "
+      >
+        <ul className="flex flex-row justify-around w-full px-4">
+          {siteConfig.bottomNavMenu.map((item) => {
+            const Icon = item.icon;
+            const isActive = currentPage === item.href;
 
-          return (
-            <li key={item.id} className="flex-1">
-              <button
-                onClick={() => setPage(item.href)}
-                className={`
-                  flex flex-col items-center justify-center w-full py-2
-                  transition-all duration-300
-                  ${isActive ? "text-cyan-400 scale-105" : "text-white/70"}
-                `}
-              >
-                <div
+            return (
+              <li key={item.id} className="flex-1">
+                <button
+                  onClick={() => setPage(item.href)}
                   className={`
-                    flex items-center justify-center
-                    w-12 h-12 rounded-xl
+                    flex flex-col items-center justify-center w-full py-2
                     transition-all duration-300
-                    ${isActive
-                      ? "bg-cyan-500/20 backdrop-blur-md shadow-md shadow-cyan-500/30"
-                      : "hover:bg-white/10"}
+                    ${isActive ? "text-cyan-400 scale-105" : "text-white/70"}
                   `}
                 >
-                  <Icon
+                  <div
                     className={`
-                      size-7 transition-colors duration-300
-                      ${isActive ? "text-cyan-400" : "text-white/70"}
+                      flex items-center justify-center
+                      w-12 h-12 rounded-xl
+                      transition-all duration-300
+                      ${isActive
+                        ? "bg-cyan-500/20 backdrop-blur-md shadow-md shadow-cyan-500/30"
+                        : "hover:bg-white/10"}
                     `}
-                  />
-                </div>
+                  >
+                    <Icon
+                      className={`
+                        size-7 transition-colors duration-300
+                        ${isActive ? "text-cyan-400" : "text-white/70"}
+                      `}
+                    />
+                  </div>
 
-                <p
-                  className={`
-                    text-xs mt-1 transition-all duration-300
-                    ${isActive ? "text-cyan-400" : "text-white/60"}
-                  `}
-                >
-                  {item.name}
-                </p>
-              </button>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+                  <p
+                    className={`
+                      text-xs mt-1 transition-all duration-300
+                      ${isActive ? "text-cyan-400" : "text-white/60"}
+                    `}
+                  >
+                    {item.name}
+                  </p>
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </div>
   );
 }
