@@ -13,7 +13,7 @@ export default function App() {
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
   // const {tgData} = useTgData()
-  let avatarLink = user.photoUrl
+  let avatarLink = ''
 
   useEffect(() => {
     avatarLink = user.photoUrl
