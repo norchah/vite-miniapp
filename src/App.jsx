@@ -8,7 +8,7 @@ import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 // import {useTgData} from "./hooks/useTgData.js";
 
 const cards = [
-  {id: 1, name: 'Получить'},
+  {id: 1, name: 'Получить', href: ''},
   {id: 2, name: 'Рефералы'},
   {id: 3, name: 'Статистика'},
   {id: 4, name: 'Настройки'},
