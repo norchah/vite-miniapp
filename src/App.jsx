@@ -12,15 +12,13 @@ export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
-  const {avatar, setAvatar} = useState('')
+  const [avatar, setAvatar] = useState('')
 
 
   useEffect(() => {
-    console.log('USEEEEER:::::::', user)
     if (user?.photoUrl) {
-      setAvatar(user.photoUrl);      // если ты приводишь к camelCase на бэке
+      setAvatar(user.photoUrl);
     }
-    console.log(avatar)
   }, [user]);
 
 
@@ -31,11 +29,9 @@ export default function App() {
       <TheHeader/>
 
       {error && <p>{error}</p>}
+      {avatar && <img src={avatar} alt="avatar" className="w-[50px] h-[50px] rounded-full"/ />}
 
-      <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      {/*{avatar.photo_url && <img src={avatar.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>}*/}
-
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>

@@ -1,5 +1,5 @@
 export default function AdminPage() {
   return (
-      <div>afghghghfghhfghdsf</div>
+      <div>ADMINSKAY HER`</div>
   );
 }
