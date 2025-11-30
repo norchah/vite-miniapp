@@ -12,14 +12,14 @@ export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
-  const { avatar, setAvatar } = useState('')
+  const {avatar, setAvatar} = useState('')
 
-
+  console.log('USEEEEER:::::::', user)
   useEffect(() => {
-    setAvatar(user.photoUrl)
-    console.log(user)
-    console.log(avatar)
-  }, [avatar, user])
+    if (user?.photoUrl) {
+      setAvatar(user.photoUrl);      // если ты приводишь к camelCase на бэке
+    }
+  }, [user]);
 
 
   return (
