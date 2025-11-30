@@ -23,7 +23,7 @@ export default function App() {
   // ЛОАДЕР
   if (loading) {
     return (
-      <div className="bg-slate-800 text-white h-screen flex flex-col items-center justify-center">
+      <div className="bg-slate-800 text-white flex flex-col items-center justify-center">
         <h1>Loading...</h1>
       </div>
     );
