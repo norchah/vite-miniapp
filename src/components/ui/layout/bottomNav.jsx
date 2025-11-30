@@ -14,7 +14,7 @@ export default function TheFooter({ setPage, currentPage, safeBottom }) {
         shadow-lg shadow-black/20
         flex items-center justify-center
       "
-      style={{ paddingBottom: `${safeBottom}px` }}
+      style={{ marginBottom: `${safeBottom}px` }}
     >
       <ul className="flex flex-row justify-around w-full px-4">
         {siteConfig.bottomNavMenu.map((item) => {
