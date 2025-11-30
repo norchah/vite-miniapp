@@ -2,7 +2,7 @@ import { siteConfig } from "../../../configs/siteConfig.js";
 
 export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
   return (
-    <div className="fixed left-0 right-0 px-2 pb-2 outline outline-2"
+    <div className="fixed left-0 right-0 px-2 pb-2"
          style={{ Bottom: `${safeZoneBottom}px` }}>
       <nav
         className="

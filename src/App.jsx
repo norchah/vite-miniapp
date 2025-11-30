@@ -41,8 +41,8 @@ export default function App() {
   // ОСНОВНОЕ ПРИЛОЖЕНИЕ
   return (
     <div
-      className="bg-slate-800 text-white h-screen flex flex-col items-center m-auto"
-      style={{paddingTop: `${safeZoneTop}px`}}
+      className="bg-slate-800 text-white h-screen flex flex-col items-center m-auto outline outline-1"
+      style={{paddingTop: `${safeZoneTop}px`, paddingBottom: `${safeZoneBottom}px`}}
     >
       <TheHeader/>
 
