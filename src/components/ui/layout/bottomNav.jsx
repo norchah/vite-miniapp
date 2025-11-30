@@ -8,12 +8,11 @@ export default function TheFooter({setPage, currentPage, safeBottom}) {
       <nav
         className="
           mx-auto w-full max-w-md
-          h-20
-          rounded-2xl
-          bg-white/10 dark:bg-black/20
+          h-15
+          rounded-3xl
+          bg-black/20
           backdrop-blur-xl
-          border border-white/20 dark:border-white/10
-          shadow-lg shadow-black/20
+          border border-white/10
           flex items-center justify-center
         "
       >
