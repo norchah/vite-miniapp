@@ -1,8 +1,10 @@
-import { siteConfig } from "../../../configs/siteConfig.js";
+import {siteConfig} from "../../../configs/siteConfig.js";
 
-export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
+export default function TheFooter({setPage, currentPage, safeBottom}) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 px-2 pb-2">
+    <div className="fixed bottom-0 left-0 right-0 px-2 pb-2"
+         style={{paddingBottom: `${safeBottom}px`}}
+    >
       <nav
         className="
           mx-auto w-full max-w-md
@@ -36,8 +38,8 @@ export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
                       w-12 h-12 rounded-xl
                       transition-all duration-300
                       ${isActive
-                        ? "bg-cyan-500/20 backdrop-blur-md shadow-md shadow-cyan-500/30"
-                        : "hover:bg-white/10"}
+                      ? "bg-cyan-500/20 backdrop-blur-md shadow-md shadow-cyan-500/30"
+                      : "hover:bg-white/10"}
                     `}
                   >
                     <Icon
