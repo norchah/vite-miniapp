@@ -12,14 +12,14 @@ export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
-  // const {tgData} = useTgData()
-  let avatarLink = ''
+  const { avatar, setAvatar } = useState('')
+
 
   useEffect(() => {
-    avatarLink = user.photoUrl
+    setAvatar(user.photoUrl)
     console.log(user)
-    console.log(avatarLink)
-  }, [user])
+    console.log(avatar)
+  }, [avatar, user])
 
 
   return (
@@ -32,7 +32,7 @@ export default function App() {
 
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      {avatarLink.photo_url && <img src={avatarLink.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>}
+      {avatar.photo_url && <img src={avatar.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>}
 
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
