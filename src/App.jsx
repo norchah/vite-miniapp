@@ -12,15 +12,14 @@ export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
-  const {tgData} = useTgData()
-
+  // const {tgData} = useTgData()
+  let avatarLink = user.photoUrl
 
   useEffect(() => {
-    setTimeout(function () {
-      console.log("USER:::::::: ", user);
-      console.log("TG DATA:::::::: ", tgData)
-    }, 2000);
-  }, [user, tgData])
+    avatarLink = user.photoUrl
+    console.log(user)
+    console.log(avatarLink)
+  }, [user])
 
 
   return (
@@ -33,7 +32,8 @@ export default function App() {
 
       <p className='w-80'>{user && JSON.stringify(user, null, 2)}</p>
       <div className="flex-1 w-full">{renderPage(page)}</div>
-      {/*<img src={tgData.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>*/}
+      {avatarLink.photo_url && <img src={avatarLink.photoUrl} className='w-[50px] h-[50px] ' alt='avatar'/>}
+
       {user && user.id === 116627792 ? <AdminPage/> : null}
       <TheFooter setPage={setPage} currentPage={page} safeBottom={safeZoneBottom}/>
     </div>
