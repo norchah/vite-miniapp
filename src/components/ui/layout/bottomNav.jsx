@@ -2,8 +2,8 @@ import { siteConfig } from "../../../configs/siteConfig.js";
 
 export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
   return (
-    <div className="fixed bottom-0 left-0 right-0 px-2 pb-2 outline outline-2"
-         style={{ marginBottom: `${safeZoneBottom}px` }}>
+    <div className="fixed left-0 right-0 px-2 pb-2 outline outline-2"
+         style={{ Bottom: `${safeZoneBottom}px` }}>
       <nav
         className="
           mx-auto w-full max-w-md
