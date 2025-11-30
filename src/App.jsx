@@ -7,6 +7,13 @@ import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 // import {useTgData} from "./hooks/useTgData.js";
 
+const cards = [
+  {id: 1, name: 'Получить'},
+  {id: 2, name: 'Рефералы'},
+  {id: 3, name: 'Статистика'},
+  {id: 4, name: 'Настройки'},
+]
+
 
 export default function App() {
   const [page, setPage] = useState('home');
@@ -47,10 +54,18 @@ export default function App() {
           className="w-[100px] h-[100px] rounded-full"
         />
       )}
-
-      <div className='w-[150px] h-[150px]'>
-        Получить
+      {/* Карточки */}
+      <div className="grid grid-cols-2 gap-4 mt-6">
+        {cards.map((card) => (
+          <div
+            key={card.id}
+            className="w-[150px] h-[150px] bg-slate-700 rounded-xl flex items-center justify-center text-lg font-medium"
+          >
+            {card.name}
+          </div>
+        ))}
       </div>
+
 
       <div className="flex-1 w-full">{renderPage(page)}</div>
 
