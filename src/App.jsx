@@ -48,6 +48,10 @@ export default function App() {
         />
       )}
 
+      <div className='w-[150px] h-[150px]'>
+        Получить
+      </div>
+
       <div className="flex-1 w-full">{renderPage(page)}</div>
 
       {user?.id === 116627792 && <AdminPage/>}
