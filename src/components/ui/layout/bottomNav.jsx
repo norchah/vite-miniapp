@@ -26,7 +26,7 @@ export default function TheFooter({ setPage, currentPage, safeZoneBottom }) {
                 <button
                   onClick={() => setPage(item.href)}
                   className={`
-                    flex flex-col items-center justify-center w-full py-2
+                    flex flex-col items-center justify-center w-full py-1
                     transition-all duration-300
                     ${isActive ? "text-cyan-400 scale-105" : "text-white/70"}
                   `}
