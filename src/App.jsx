@@ -46,20 +46,12 @@ export default function App() {
     >
       <TheHeader/>
 
-      {/* Показываем аватар */}
-      {user?.photoUrl && (
-        <img
-          src={user.photoUrl}
-          alt="avatar"
-          className="w-[100px] h-[100px] rounded-full"
-        />
-      )}
       {/* Карточки */}
       <div className="flex flex-col w-full mt-6 outline">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="w-full h-10 bg-slate-700 rounded-xl flex items-center justify-center text-lg font-medium mb-1"
+            className="w-full h-10 bg-slate-700 rounded-l flex items-center justify-center text-lg font-medium mb-1"
           >
             {card.name}
           </div>
