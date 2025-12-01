@@ -55,11 +55,11 @@ export default function App() {
         />
       )}
       {/* Карточки */}
-      <div className="flex flex-col mt-6">
+      <div className="flex flex-col f-full mt-6">
         {cards.map((card) => (
           <div
             key={card.id}
-            className="w-full h-10 bg-slate-700 rounded-xl text-lg font-medium"
+            className="w-full h-10 bg-slate-700 rounded-xl flex items-center justify-center text-lg font-medium"
           >
             {card.name}
           </div>
