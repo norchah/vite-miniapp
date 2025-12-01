@@ -47,7 +47,7 @@ export default function App() {
       <TheHeader/>
 
       {/* Карточки */}
-      <div className="flex flex-col w-full mt-6 outline">
+      <div className="flex flex-col w-full mt-6">
         {cards.map((card) => (
           <div
             key={card.id}
