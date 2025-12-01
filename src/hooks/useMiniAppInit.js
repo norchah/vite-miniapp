@@ -13,12 +13,13 @@ export function useMiniAppInit() {
         tgData.disableVerticalSwipes();
         tgData.lockOrientation();
         tgData.requestFullscreen();
-        setSafeZoneTop(tgData.safeAreaInset.top)
-        setSafeZoneBottom(tgData.safeAreaInset.bottom)
 
-        // test
-        tgData.ready()
       }
+      setSafeZoneTop(tgData.safeAreaInset.top)
+      setSafeZoneBottom(tgData.safeAreaInset.bottom)
+
+      // test
+      tgData.ready()
 
     }, [tgData]
   );
