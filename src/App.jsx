@@ -5,6 +5,8 @@ import {renderPage} from "./utils/renderPage.jsx";
 import AdminPage from "./components/common/admin.jsx";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
+import {siteConfig} from "./configs/siteConfig.js";
+import {useTgData} from "./hooks/useTgData.js";
 // import {useTgData} from "./hooks/useTgData.js";
 
 const cards = [
@@ -20,6 +22,13 @@ export default function App() {
   const [page, setPage] = useState('home');
   const {safeZoneTop, safeZoneBottom} = useMiniAppInit()
   const {user, error, loading} = useMiniAppAuth();
+  const {tgData} = useTgData()
+
+  useEffect(() => {
+    if (safeZoneTop && safeZoneTop) {
+      return tgData.ready()
+    }
+  }, [safeZoneTop, safeZoneBottom]);
 
   // ЛОАДЕР
   if (loading) {
@@ -49,7 +58,7 @@ export default function App() {
 
       {/* Карточки */}
       <ul className="flex flex-col w-full mt-6">
-        {cards.map((card) => (
+        {siteConfig.navMenu.map((card) => (
           <li
             key={card.id}
             className="
@@ -57,16 +66,15 @@ export default function App() {
             flex items-center justify-center text-xs font-medium
             first:rounded-t-lg mb-[2px] last:rounded-b-lg last: mb-none"
           >
-            <a className='w-full h-full block'>
+            <button onClick={card.href} className='w-full h-full'>
               {card.name}
-            </a>
-
+            </button>
           </li>
         ))}
       </ul>
 
 
-      <div className="flex-1 w-full">{renderPage(page)}</div>
+      {/*<div className="flex-1 w-full">{renderPage(page)}</div>*/}
 
       {user?.id === 116627792 && <AdminPage/>}
 
