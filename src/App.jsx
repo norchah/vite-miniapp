@@ -28,7 +28,7 @@ export default function App() {
     if (safeZoneTop && safeZoneTop) {
       return tgData.ready()
     }
-  }, [tgData, safeZoneTop, safeZoneBottom]);
+  }, [tgData]);
 
   // ЛОАДЕР
   if (loading) {
