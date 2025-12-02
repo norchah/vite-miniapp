@@ -51,7 +51,7 @@ export default function App() {
         {cards.map((card) => (
           <div
             key={card.id}
-            className="w-full h-10 bg-slate-700 rounded-l flex items-center justify-center text-xs font-medium mb-1"
+            className="w-full h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xs font-medium mb-1"
           >
             {card.name}
           </div>
