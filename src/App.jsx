@@ -8,10 +8,11 @@ import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 // import {useTgData} from "./hooks/useTgData.js";
 
 const cards = [
-  {id: 1, name: 'Получить', href: ''},
-  {id: 2, name: 'Рефералы'},
-  {id: 3, name: 'Статистика'},
-  {id: 4, name: 'Настройки'},
+  {id: 1, name: 'Users', href: 'users', icon: ''},
+  {id: 4, name: 'Keys', href: 'keys', icon: ''},
+  {id: 1, name: 'Servers', href: 'servers', icon: ''},
+  {id: 3, name: 'Payments', href: 'payments', icon: ''},
+  {id: 2, name: 'Referrals', href: 'referrals', icon: ''},
 ]
 
 
@@ -47,16 +48,22 @@ export default function App() {
       <TheHeader/>
 
       {/* Карточки */}
-      <div className="flex flex-col w-full mt-6">
+      <ul className="flex flex-col w-full mt-6">
         {cards.map((card) => (
-          <div
+          <li
             key={card.id}
-            className="w-full h-10 bg-slate-700 rounded-lg flex items-center justify-center text-xs font-medium mb-1"
+            className="
+            w-full h-10 bg-slate-700
+            flex items-center justify-center text-xs font-medium
+            first:rounded-t-lg mb-[2px] last:rounded-b-lg last: mb-none"
           >
-            {card.name}
-          </div>
+            <a className='w-full h-full block'>
+              {card.name}
+            </a>
+
+          </li>
         ))}
-      </div>
+      </ul>
 
 
       <div className="flex-1 w-full">{renderPage(page)}</div>
