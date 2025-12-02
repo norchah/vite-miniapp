@@ -24,14 +24,14 @@ export default function App() {
   const {user, error, loading} = useMiniAppAuth();
   const {tgData} = useTgData()
 
-  // useEffect(() => {
-  //   if (safeZoneTop && safeZoneTop) {
-  //     return tgData.ready()
-  //   }
-  // }, [tgData]);
+  useEffect(() => {
+    if (safeZoneTop !== 0 && safeZoneTop) {
+      return tgData.ready()
+    }
+  }, [tgData]);
 
   // ЛОАДЕР
-  if (!tgData || loading) {
+  if (loading) {
     return (
       <div className="bg-slate-800 text-white flex flex-col items-center justify-center">
         <h1>Loading...</h1>
