@@ -34,15 +34,6 @@ export default function App() {
     >
       <TheHeader/>
 
-      {/* Аватар */}
-      {user?.photoUrl && (
-        <img
-          src={user.photoUrl}
-          alt="avatar"
-          className="w-20 h-20 rounded-full mb-4"
-        />
-      )}
-
       {/* Карточки */}
       <ul className="flex flex-col w-full mt-6">
         {siteConfig.navMenu.map((card) => (
@@ -58,15 +49,8 @@ export default function App() {
       </ul>
 
       {/* Страница админа */}
-      {user?.id === 116627792 && <AdminPage/>}
+      {/*{user?.id === 116627792 && <AdminPage/>}*/}
 
-      {/* Footer */}
-      <TheFooter
-        setPage={() => {
-        }}
-        currentPage=""
-        safeBottom={safeZoneBottom}
-      />
     </div>
   );
 }
