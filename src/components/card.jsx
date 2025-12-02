@@ -1,6 +1,7 @@
 import React from 'react';
 
 const Card = (card) => {
+  console.log('card:::::::::::::::::: ', card);
   return (
     <li
       key={card.id}
