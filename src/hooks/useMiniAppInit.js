@@ -17,10 +17,6 @@ export function useMiniAppInit() {
       }
       setSafeZoneTop(tgData.safeAreaInset.top)
       setSafeZoneBottom(tgData.safeAreaInset.bottom)
-
-      // test
-      tgData.ready()
-
     }, [tgData]
   );
 
