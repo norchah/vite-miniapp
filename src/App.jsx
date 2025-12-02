@@ -27,6 +27,7 @@ export default function App() {
       </div>
     );
   }
+  console.log('app, siteConfig, navMenu', siteConfig.navMenu)
 
   return (
     <div
