@@ -2,6 +2,7 @@ import React from 'react';
 
 const Card = (card) => {
   console.log('card:::::::::::::::::: ', card);
+  console.log(card.name);
   return (
     <li
       key={card.id}
