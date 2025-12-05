@@ -1,28 +1,37 @@
-// hooks/useMiniAppInit.js
-import {useEffect, useState} from 'react';
-
+import {useEffect, useState} from "react";
 
 export function useMiniAppInit(tgData) {
-  const [safeTop, setSafeZoneTop] = useState(null);
-  const [safeBottom, setSafeZoneBottom] = useState(null);
-
+  const [safeTop, setSafeTop] = useState(null);
+  const [safeBottom, setSafeBottom] = useState(null);
 
   useEffect(() => {
     if (!tgData) return;
 
-    // Настройки WebApp
-    if (tgData.platform !== 'tdesktop') {
+    // Блокируем свайпы и режимы (не обязательно, но норм)
+    if (tgData.platform !== "tdesktop") {
       tgData.disableVerticalSwipes?.();
       tgData.lockOrientation?.();
       tgData.requestFullscreen?.();
     }
 
-    // Устанавливаем safe area
-    setSafeZoneTop(tgData.safeAreaInset?.top ?? 0);
-    setSafeZoneBottom(tgData.safeAreaInset?.bottom ?? 0);
+    // Telegram требует ready() прежде чем отдаст корректные safeAreaInset
+    tgData.ready();
 
-    // Говорим Telegram, что приложение готово
-    tgData.ready?.();
+    // Даем Telegram один кадр чтобы применить инициализацию
+    requestAnimationFrame(() => {
+      const top = tgData.safeAreaInset?.top ?? 0;
+      const bottom = tgData.safeAreaInset?.bottom ?? 0;
+
+      setSafeTop(top);
+      setSafeBottom(bottom);
+    });
+
+    // подписываемся на изменение viewport (iOS особенно любит менять safeArea после загрузки)
+    tgData.onEvent("viewportChanged", () => {
+      setSafeTop(tgData.safeAreaInset?.top ?? 0);
+      setSafeBottom(tgData.safeAreaInset?.bottom ?? 0);
+    });
+
   }, [tgData]);
 
   return {safeTop, safeBottom};
