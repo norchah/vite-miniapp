@@ -1,11 +1,11 @@
 // hooks/useMiniAppInit.js
-import { useEffect, useState } from 'react';
-import { useTgData } from "./useTgData.js";
+import {useEffect, useState} from 'react';
 
-export function useMiniAppInit() {
-  const { tgData } = useTgData();
-  const [safeZoneTop, setSafeZoneTop] = useState(null);
-  const [safeZoneBottom, setSafeZoneBottom] = useState(null);
+
+export function useMiniAppInit(tgData) {
+  const [safeTop, setSafeZoneTop] = useState(null);
+  const [safeBottom, setSafeZoneBottom] = useState(null);
+
 
   useEffect(() => {
     if (!tgData) return;
@@ -25,5 +25,5 @@ export function useMiniAppInit() {
     tgData.ready?.();
   }, [tgData]);
 
-  return { safeZoneTop, safeZoneBottom, tgData };
+  return {safeTop, safeBottom};
 }

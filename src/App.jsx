@@ -1,19 +1,17 @@
 import TheHeader from "./components/ui/layout/TheHeader.jsx";
-import {useMiniAppInit} from "./hooks/useMiniAppInit.js";
-import {useMiniAppAuth} from "./hooks/useMiniAppAuth.js";
 import TheFooter from "./components/ui/layout/bottomNav.jsx";
 import AdminPage from "./components/common/admin.jsx";
 import {siteConfig} from "./configs/siteConfig.js";
 import Card from "./components/card.jsx";
+import {useMiniApp} from "./hooks/useMiniApp.js";
 
 export default function App() {
-  const {safeZoneTop, safeZoneBottom, tgData} = useMiniAppInit();
-  const {user, loading, error} = useMiniAppAuth();
+  const {tgData, user, safeTop, safeBottom, loading, error} = useMiniApp();
 
   // Показываем лоадер, пока не готовы tgData или user
-  if (!tgData || safeZoneTop === null || loading) {
+  if (loading) {
     return (
-      <div className="bg-slate-800 text-white h-screen flex flex-col items-center justify-center">
+      <div className="bg-slate-800 text-white h-screen flex items-center justify-center">
         <h1>Loading...</h1>
       </div>
     );
@@ -22,17 +20,17 @@ export default function App() {
   // Ошибка
   if (error) {
     return (
-      <div className="bg-slate-800 text-white h-screen flex flex-col items-center justify-center">
+      <div className="bg-slate-800 text-white h-screen flex items-center justify-center">
         <h1>Error: {error}</h1>
       </div>
     );
   }
-  console.log('app, siteConfig, navMenu', siteConfig.navMenu)
+
 
   return (
     <div
       className="bg-slate-800 text-white h-screen flex flex-col items-center m-auto max-w-[456px] p-5"
-      style={{paddingTop: `${safeZoneTop}px`, paddingBottom: `${safeZoneBottom}px`}}
+      style={{paddingTop: `${safeTop}px`, paddingBottom: `${safeBottom}px`}}
     >
       <TheHeader/>
 
