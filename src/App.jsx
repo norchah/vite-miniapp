@@ -26,7 +26,7 @@ export default function App() {
     );
   }
 
-
+  console.log(siteConfig.navMenu)
   return (
     <div
       className="bg-slate-800 text-white h-screen flex flex-col items-center m-auto max-w-[456px] p-5"
