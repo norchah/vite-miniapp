@@ -9,7 +9,7 @@ export default function App() {
   const {tgData, user, safeTop, safeBottom, loading, error} = useMiniApp();
 
   // Показываем лоадер, пока не готовы tgData или user
-  if (loading) {
+  if (!tgData || safeTop === null || loading) {
     return (
       <div className="bg-slate-800 text-white h-screen flex items-center justify-center">
         <h1>Loading...</h1>
