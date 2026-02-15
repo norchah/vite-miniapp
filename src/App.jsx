@@ -4,9 +4,12 @@ import AdminPage from "./components/common/admin.jsx";
 import {siteConfig} from "./configs/siteConfig.js";
 import Card from "./components/card.jsx";
 import {useMiniApp} from "./hooks/useMiniApp.js";
+import {renderPageByKey} from "./pages/pages.js";
+import {useState} from "react";
 
 export default function App() {
   const {tgData, user, safeTop, safeBottom, loading, error} = useMiniApp();
+  const [page, setPage] = useState('home');
 
   // Показываем лоадер, пока не готовы tgData или user
   if (!tgData || safeTop === null || loading) {
@@ -26,7 +29,6 @@ export default function App() {
     );
   }
 
-  console.log(siteConfig.navMenu)
   return (
     <div
       className="bg-slate-800 text-white h-screen flex flex-col items-center m-auto max-w-[456px] p-5"
@@ -35,11 +37,8 @@ export default function App() {
       <TheHeader/>
 
       {/* Карточки */}
-      <ul className="flex flex-col w-full mt-6">
-        {siteConfig.navMenu.map((card) => (
-          <Card card={card} key={card.id}/>
-        ))}
-      </ul>
+      <div className="mt-6">{renderPageByKey(page)}</div>
+
 
       {/* Страница админа */}
       {/*{user?.id === 116627792 && <AdminPage/>}*/}
